@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Fetal Health prediction</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-green lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Do you want to analyse your Cardiotocogram(CTG) results?</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Return to home</a></li>
+      </ul>
+
+  </nav>
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+     <h5 style="text-align: center; color: brown; font-weight: 600;">{{pred}}</h5>
+      <h1 class="header center black-text">Predict the fetal health based on previous CTG exam results(uses Machine Learning in the background)</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Please enter the following parameters of your CTG exam results to see if the fetus is healthy, suspect or Pathological!
+        <br>
+        </h5>
+      </div>
+
+
+      <div class="row">
+        <form action='/predict' method="post" class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="first_name"><b>Base Heart Rate (106-160)</b></label>
+                    <br>
+                    <input placeholder="beats per minute" name="1" id="first_name" type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>accelerations(0.0-0.019) </b></label>
+                    <br>
+                    <input id="last_name" name="2" placeholder="fetal accelerations"  type="text" class="validate">
+    
+                </div>
+    
+                <div class="input-field col s4">
+                    <label for="_name"><b>fetal_movement (0.0-0.481)</b></label>
+                    <br>
+                    <input id="_name" name="3" placeholder="amount of movement" type="text" class="validate">
+    
+                </div>
+                <div class="input-field col s4">
+                    <label for="first_name"><b>uterine_contractions (0.0-0.015)</b></label>
+                    <br>
+                    <input placeholder="uterine_contractions" name="4" id="first_name" type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>light_decelerations (0.0-0.015) </b></label>
+                    <br>
+                    <input id="last_name" name="5" placeholder="light_decelerations"  type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                  <label ><b>severe_decelerations (0.0-0.001)</b></label>
+                  <br>
+                  <input name = '6' placeholder="severe_decelerations ">
+
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>prolongued_decelerations (0.0-0.005)</b></label>
+                    <br>
+                    <input id="last_name" name="7" placeholder="prolongued_decelerations"  type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="_name"><b>%time abnormal shortterm variability(0.0-100)</b></label>
+                    <br>
+                    <input id="_name" name="8" placeholder="% of time" type="text" class="validate">
+                </div>
+				<div class="input-field col s4">
+                    <label for="_name"><b>mean value of short term variability (0.0-10.0)</b></label>
+                    <br>
+                    <input id="_name" name="9" placeholder="mean value" type="text" class="validate">
+                </div>
+				<div class="input-field col s4">
+                    <label for="_name"><b>%time abnormal longterm variability(0.0-100)</b></label>
+                    <br>
+                    <input id="_name" name="10" placeholder="% of time" type="text" class="validate">
+                </div>
+				<div class="input-field col s4">
+                    <label for="_name"><b>mean value of long term variability (0.0-10.0)</b></label>
+                    <br>
+                    <input id="_name" name="11" placeholder="mean value" type="text" class="validate">
+                </div>
+    
+          </div>
+    
+          <div class="row center">
+    
+              <button type="submit" class="btn-large waves-effect waves-light light-green">Submit and predict health</button>
+
+          </div>
+        </form>
+  </div>
+
+      <br>
+
+     
+    <br><br>
+  </div>
+  </div>>
+
+  <footer class="page-footer light-green">
+    <div class="footer-copyright">
+      <div class="container" style="padding-bottom: 1rem; position: fixed; font-size: 1.2rem; margin-left: 5rem;">
+        <p>&copy; Ashish Pandey</p>
+        <p>ashishpandey.nitt@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
